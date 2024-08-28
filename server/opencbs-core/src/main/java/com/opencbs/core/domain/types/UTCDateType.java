@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.sql.*;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 import java.util.TimeZone;
 
 public class UTCDateType implements UserType {
@@ -28,7 +29,7 @@ public class UTCDateType implements UserType {
 
     @Override
     public boolean equals(Object x, Object y) {
-        return (x == null) ? (y == null) : x.equals(y);
+        return Objects.equals(x, y);
     }
 
     @Override

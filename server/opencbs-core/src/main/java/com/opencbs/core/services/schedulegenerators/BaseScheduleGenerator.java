@@ -101,7 +101,7 @@ public abstract class BaseScheduleGenerator implements ScheduleGenerator {
             installment.setNumber(i+1);
             LocalDate lastAccrualDate = i == 0 ?
                     params.getPreferredRepaymentDate()
-                    : params.getPreferredRepaymentDate().plusMonths(i * period).plusDays(i * days);
+                    : params.getPreferredRepaymentDate().plusMonths(i * period).plusDays((long) i * days);
             LocalDate maturityDate = i == 0 ?
                     params.getPreferredRepaymentDate()
                     : this.getDate(params.getPreferredRepaymentDate(), i * period, i * days);

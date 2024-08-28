@@ -16,7 +16,7 @@ public class JasperExporterHelper {
 
 
     public static String getExportName(JasperPrint jasperPrint) {
-        return String.format("%s_%s", jasperPrint.getName(), DateHelper.getLocalDateTimeNow().toString());
+        return String.format("%s_%s", jasperPrint.getName(), DateHelper.getLocalDateTimeNow());
     }
 
     public JasperExporter getExporter(ReportFormatType reportFormatType) {

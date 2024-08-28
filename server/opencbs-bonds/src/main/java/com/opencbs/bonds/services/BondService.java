@@ -218,7 +218,7 @@ public class BondService {
 
         for (int i = 0; i < bond.getMaturity(); i++) {
             LocalDate maturityDate =
-                    i == 0 ? bond.getCouponDate() : this.getDate(bond.getCouponDate(), i * period);
+                    i == 0 ? bond.getCouponDate() : this.getDate(bond.getCouponDate(), (long) i * period);
             expireDate = maturityDate;
         }
 

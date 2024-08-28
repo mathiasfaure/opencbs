@@ -111,11 +111,7 @@ public abstract class BaseHistoryService<T extends RevisionRepository> {
         if (first != null && first.equals(second)) {
             return true;
         }
-        if (second != null && second.equals(first)) {
-            return true;
-        }
-
-        return false;
+        return second != null && second.equals(first);
     }
 
     public LocalDateTime getDateTimeLastRevision(Long entityId) throws Exception {

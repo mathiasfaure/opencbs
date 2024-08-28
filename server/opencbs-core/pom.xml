@@ -31,6 +31,45 @@
         <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
     </properties>
+<repositories>
+        <repository>
+            <id>releases.java.net</id>
+            <url>https://maven.java.net/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>snapshots.java.net</id>
+            <url>https://maven.java.net/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>jvnet-nexus-staging</id>
+            <url>https://maven.java.net/content/repositories/staging/</url>
+        </repository>
+        <repository>
+            <id>jaspersoft-third-party</id>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+        </repository>
+        <repository>
+            <id>jr-ce-releases</id>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/jr-ce-releases</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>jfrog-plugins-mirror</id>
+            <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <url>https://repo.spring.io/snapshot</url>
+        </repository>
+        <repository><id>OpenMind</id><url>https://repository.openmindonline.it/i </url></repository>
+    </repositories>
 
     <dependencies>
         <dependency>

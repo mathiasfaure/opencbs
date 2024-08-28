@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +41,7 @@ public class ProvisionOlb extends BaseProvisionProcessor implements ProvisionPro
     @Override
     public BigDecimal calculateRateByAmount(@NonNull LoanInfo loanInfo, @NonNull BigDecimal amount) {
         Assert.isTrue(BigDecimal.ZERO.compareTo(amount)!=0, "Value can't be zero");
-        return amount.multiply(BigDecimal.valueOf(100)).divide(loanInfo.getOlb(), 2, BigDecimal.ROUND_HALF_EVEN);
+        return amount.multiply(BigDecimal.valueOf(100)).divide(loanInfo.getOlb(), 2, RoundingMode.HALF_EVEN);
     }
 
     @Override

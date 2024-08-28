@@ -163,8 +163,8 @@ public class LoanInterestAccrualServerDayClosureProcessor implements LoanDayClos
     }
 
     private BigDecimal calculateInterest(@NonNull BigDecimal olb, @NonNull BigDecimal rate, @NonNull BigDecimal daysInYear) {
-        return rate.divide(BigDecimal.valueOf(100), BigDecimal.ROUND_HALF_UP)
-                .multiply(olb).divide(daysInYear, BigDecimal.ROUND_HALF_UP);
+        return rate.divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP)
+                .multiply(olb).divide(daysInYear, RoundingMode.HALF_UP);
     }
 
     private BigDecimal getPlannedAmount(@NonNull Long loanId, @NonNull List<LoanInstallment> installments, @NonNull Integer installmentNumber) {
@@ -190,7 +190,7 @@ public class LoanInterestAccrualServerDayClosureProcessor implements LoanDayClos
 
     private LocalDateTime getEffectiveAtDate(@NonNull Long loanId, @NonNull LocalDate closureDate) {
         LocalDateTime closureDateTime = closureDate.atTime(getProcessType().getOperationTime());
-        if (closureDate.compareTo(getDisbursementDate(loanId).toLocalDate()) > 0) {
+        if (closureDate.isAfter(getDisbursementDate(loanId).toLocalDate())) {
             return closureDateTime;
         }
 

@@ -156,7 +156,7 @@ public class AccountingEntryService {
         }
 
         operationDtos = operationDtos.stream()
-                .skip(pageable.getPageNumber() * pageable.getPageSize())
+                .skip((long) pageable.getPageNumber() * pageable.getPageSize())
                 .limit(pageable.getPageSize())
                 .sorted(Comparator.comparing(AccountOperationDto::getDate, Comparator.reverseOrder())
                         .thenComparing(AccountOperationDto::getId, Comparator.reverseOrder()))

@@ -20,7 +20,7 @@ import java.util.Optional;
 @Service
 public class RoleService extends BaseHistoryService<RoleRepository> implements CrudService<Role>, HistoryService {
 
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
 
 
     @Autowired

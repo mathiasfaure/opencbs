@@ -9,7 +9,7 @@ public enum SystemMessageType {
     WARNING("warning");
 
     @Getter
-    private String type;
+    private final String type;
 
     SystemMessageType(String type) {
         this.type = type;

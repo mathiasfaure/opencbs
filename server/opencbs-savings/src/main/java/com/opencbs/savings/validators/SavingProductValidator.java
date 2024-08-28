@@ -345,7 +345,7 @@ public class SavingProductValidator extends BaseValidator {
 
         AccountType type;
         for (Map.Entry<SavingAccountRuleType, Long> entry : accountsFromDto.entrySet()) {
-            Assert.isTrue(accounts.keySet().contains(entry.getValue()),
+            Assert.isTrue(accounts.containsKey(entry.getValue()),
                     String.format("%s account not found (ID=%d)", entry.getKey(), entry.getValue()));
 
             type = accounts.get(entry.getValue()).getType();

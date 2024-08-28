@@ -5,7 +5,7 @@ public enum AccountType {
     GROUP(2),
     SUBGROUP(3),
     BALANCE(4);
-    private Integer Id;
+    private final Integer Id;
 
     AccountType(int id) {
         this.Id = id;

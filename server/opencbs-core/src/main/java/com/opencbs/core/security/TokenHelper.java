@@ -47,11 +47,7 @@ public class TokenHelper {
     public Boolean verifyToken(String token, User user) {
         final String username = this.getUsernameFromToken(token);
         if (username == null) return false;
-        if (username.equals(user.getUsername()) && !IsSessionExpired(user)) {
-            return true;
-        }
-
-        return false;
+        return username.equals(user.getUsername()) && !IsSessionExpired(user);
     }
 
     public String tokenFor(User user) {
@@ -81,11 +77,7 @@ public class TokenHelper {
         if (minutes == 0) { // session never ended
             return false;
         }
-        if (DateHelper.greater(DateHelper.getLocalDateTimeNow(), user.getLastEntryTime().plusMinutes(minutes))) {
-            return true;
-        }
-
-        return false;
+        return DateHelper.greater(DateHelper.getLocalDateTimeNow(), user.getLastEntryTime().plusMinutes(minutes));
     }
 
     public void setEventInformation(User user) {

@@ -21,7 +21,7 @@ public class LoanSpecificProvisionMapper {
     private final LoanSpecificProvisionRepository loanSpecificProvisionRepository;
 
     public LoanSpecificProvision mapToEntity(SpecificProvisionApplyDto specificProvisionApplyDto) {
-        Assert.notNull(specificProvisionApplyDto.getLoanId(), String.format("Field loanId can be set"));
+        Assert.notNull(specificProvisionApplyDto.getLoanId(), "Field loanId can be set");
         final Loan loan = this.loanService.getLoanById(specificProvisionApplyDto.getLoanId());
         Assert.notNull(loan, String.format("Loan with Id:%s not found", specificProvisionApplyDto.getLoanId()));
 

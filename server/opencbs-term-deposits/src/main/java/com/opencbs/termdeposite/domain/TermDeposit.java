@@ -55,7 +55,7 @@ public class TermDeposit extends Contract {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "interest_accrual_frequency", nullable = false)
-    private Frequency interestAccrualFrequency = Frequency.DAILY;
+    private final Frequency interestAccrualFrequency = Frequency.DAILY;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "term_deposit_product_id")

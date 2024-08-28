@@ -121,7 +121,7 @@ public class ImportPaymentHistoryServiceImpl implements ImportPaymentHistoryServ
         } else if (value instanceof BigDecimal) {
             cell.setCellValue(String.valueOf(((BigDecimal) value).doubleValue()));
         } else if (value instanceof LocalDateTime) {
-            cell.setCellValue(String.valueOf((LocalDateTime) value));
+            cell.setCellValue(String.valueOf(value));
         } else {
             cell.setCellValue((String) value);
         }
@@ -173,7 +173,7 @@ public class ImportPaymentHistoryServiceImpl implements ImportPaymentHistoryServ
     }
 
     ResponseEntity.BodyBuilder getBody() {
-        String fileName = String.format("%s_%s", "some", DateHelper.getLocalDateTimeNow().toString());
+        String fileName = String.format("%s_%s", "some", DateHelper.getLocalDateTimeNow());
         return ResponseEntity
                 .ok()
                 .header(HttpHeaders.CONTENT_TYPE,

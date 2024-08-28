@@ -11,13 +11,13 @@ import net.sf.jasperreports.engine.JRPropertiesMap;
 @Mapper
 public class DocumentFieldMapper {
 
-    private static String _DOCUMENT_FIELD_IS_UNIQUE_ =  "DocumentField.isUnique";
-    private static String _DOCUMENT_FIELD_TYPE_ =  "DocumentField.type";
-    private static String _DOCUMENT_FIELD_CAPTION_ =  "DocumentField.caption";
-    private static String _DOCUMENT_FIELD_REQUIRED_ =  "DocumentField.required";
-    private static String _DOCUMENT_FIELD_ORDER_ =  "DocumentField.order";
-    private static String _DOCUMENT_FIELD_DEFAULT_VALUE_ =  "DocumentField.defaultValue";
-    private static String _DOCUMENT_FIELD_EXTRA_ =  "DocumentField.extra";
+    private static final String _DOCUMENT_FIELD_IS_UNIQUE_ =  "DocumentField.isUnique";
+    private static final String _DOCUMENT_FIELD_TYPE_ =  "DocumentField.type";
+    private static final String _DOCUMENT_FIELD_CAPTION_ =  "DocumentField.caption";
+    private static final String _DOCUMENT_FIELD_REQUIRED_ =  "DocumentField.required";
+    private static final String _DOCUMENT_FIELD_ORDER_ =  "DocumentField.order";
+    private static final String _DOCUMENT_FIELD_DEFAULT_VALUE_ =  "DocumentField.defaultValue";
+    private static final String _DOCUMENT_FIELD_EXTRA_ =  "DocumentField.extra";
 
 
     @SneakyThrows

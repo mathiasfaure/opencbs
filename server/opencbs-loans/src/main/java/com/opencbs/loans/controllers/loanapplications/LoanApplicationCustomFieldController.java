@@ -97,7 +97,7 @@ public class LoanApplicationCustomFieldController extends BaseController {
     @DeleteMapping(value = "/{fieldId}")
     public void deleteCustomField(@PathVariable @NonNull Long fieldId) {
         CustomField customField = this.loanApplicationCustomFieldService.findOne(fieldId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Field not found (ID=%d).")));
+                .orElseThrow(() -> new ResourceNotFoundException("Field not found (ID=%d)."));
 
         this.loanApplicationCustomFieldService.delete(customField);
     }

@@ -193,7 +193,7 @@ public class ExcelReportService extends AbstractDocumentService<ExcelTemplate> i
     }
 
     ResponseEntity.BodyBuilder getBody(ExcelTemplate template) {
-        String fileName = String.format("%s_%s", template.getLabel(), DateHelper.getLocalDateTimeNow().toString());
+        String fileName = String.format("%s_%s", template.getLabel(), DateHelper.getLocalDateTimeNow());
         return ResponseEntity
                 .ok()
                 .header(HttpHeaders.CONTENT_TYPE,
@@ -352,7 +352,7 @@ public class ExcelReportService extends AbstractDocumentService<ExcelTemplate> i
                 .collect(Collectors.toList());
 
         for (TemplateItem item : items) {
-            if (!data.keySet().contains(item.getName())) {
+            if (!data.containsKey(item.getName())) {
                 continue;
             }
             this.setCellValue(item.getCell(), data.get(item.getName()));
@@ -370,8 +370,8 @@ public class ExcelReportService extends AbstractDocumentService<ExcelTemplate> i
         }
         if (command.equals("total")) {
             currentCell.setCellFormula(String.format("SUM(%s:%s)",
-                    firstCell.getAddress().toString(),
-                    lastCell.getAddress().toString()));
+                    firstCell.getAddress(),
+                    lastCell.getAddress()));
             currentCell.setCellType(CellType.FORMULA);
         }
     }
@@ -412,7 +412,7 @@ public class ExcelReportService extends AbstractDocumentService<ExcelTemplate> i
         CellCopyPolicy cellCopyPolicy = new CellCopyPolicy();
         cellCopyPolicy.setCopyMergedRegions(true);
         cellCopyPolicy.setCopyCellValue(false);
-        sheetAt.copyRows(Arrays.asList(row), row.getRowNum() + 1, cellCopyPolicy);
+        sheetAt.copyRows(Collections.singletonList(row), row.getRowNum() + 1, cellCopyPolicy);
         return sheetAt.getRow(row.getRowNum() + 1);
     }
 

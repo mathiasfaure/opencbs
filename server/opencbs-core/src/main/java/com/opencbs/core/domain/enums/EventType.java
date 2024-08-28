@@ -37,7 +37,7 @@ public enum EventType {
     ROLLBACK(EventTypeGroup.ROLLBACK);
 
     @Getter
-    private EventTypeGroup eventTypeGroup;
+    private final EventTypeGroup eventTypeGroup;
 
     EventType(EventTypeGroup group) {
         this.eventTypeGroup = group;

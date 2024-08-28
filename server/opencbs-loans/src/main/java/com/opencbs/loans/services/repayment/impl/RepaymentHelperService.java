@@ -54,7 +54,7 @@ public class RepaymentHelperService {
                 .map(LoanPenaltyAmount::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        if (repaymentDate.toLocalDate().compareTo(installments.get(installments.size()-1).getMaturityDate()) > 0) {
+        if (repaymentDate.toLocalDate().isAfter(installments.get(installments.size() - 1).getMaturityDate())) {
             interest = installments.stream()
                     .map(li -> li.getAccruedInterest().subtract(li.getPaidInterest()))
                     .reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -92,7 +92,7 @@ public class RepaymentHelperService {
 
         BigDecimal earlyRepaymentTotalAmount = principal.add(interest).add(penalty).subtract(expiredRepaymentAmount.getTotal());
         BigDecimal earlyRepaymentFee = BigDecimal.ZERO;
-        if (repaymentDate.toLocalDate().compareTo(installments.get(installments.size()-1).getMaturityDate()) < 0) {
+        if (repaymentDate.toLocalDate().isBefore(installments.get(installments.size() - 1).getMaturityDate())) {
             earlyRepaymentFee = feeRepaymentService.getTotalRepaymentEarlyFee(loanId, repaymentDate, earlyRepaymentTotalAmount, olb);
         }
         return earlyRepaymentFee.add(principal).add(interest).add(penalty);
@@ -100,7 +100,7 @@ public class RepaymentHelperService {
 
     public ExpiredRepaymentSplit getExpiredInstallmentsRepaymentAmount(@NonNull Long loanId, @NonNull List<LoanInstallment> installments, @NonNull LocalDate repaymentDate) {
         List<LoanInstallment> expiredInstallments = installments.stream()
-                .filter(x -> x.getMaturityDate().compareTo(repaymentDate) <= 0)
+                .filter(x -> !x.getMaturityDate().isAfter(repaymentDate))
                 .collect(Collectors.toList());
 
         BigDecimal principal = expiredInstallments.stream()

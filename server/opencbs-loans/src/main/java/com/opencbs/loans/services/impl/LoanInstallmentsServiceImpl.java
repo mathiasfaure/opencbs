@@ -95,7 +95,7 @@ public class LoanInstallmentsServiceImpl implements LoanInstallmentsService {
                 return false;
             }
             prevMaturityData = lsi.getMaturityDate();
-        };
+        }
 
         return true;
     }

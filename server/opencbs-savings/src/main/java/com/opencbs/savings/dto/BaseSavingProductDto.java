@@ -55,5 +55,5 @@ public class BaseSavingProductDto extends BaseDto {
 
     private BigDecimal minBalance;
 
-    private StatusType statusType = StatusType.ACTIVE;
+    private final StatusType statusType = StatusType.ACTIVE;
 }

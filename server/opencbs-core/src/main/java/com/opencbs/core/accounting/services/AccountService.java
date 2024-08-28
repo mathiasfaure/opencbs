@@ -179,7 +179,7 @@ public class AccountService extends BaseHistoryService<AccountRepository> implem
     public Page<Account> search(AccountRequest request, Pageable pageable) throws ResourceNotFoundException {
         List<AccountType> accountTypes = request.getAccountTypes() != null
                 ? request.getAccountTypes()
-                : Arrays.asList(AccountType.BALANCE);
+                : Collections.singletonList(AccountType.BALANCE);
 
         return this.accountRepository.search(request.getCurrencyId(), request.getSearch(), accountTypes, request.getTypeOfAccount(), pageable);
 
@@ -267,12 +267,12 @@ public class AccountService extends BaseHistoryService<AccountRepository> implem
             return;
         }
 
-        account.setLocked(dto.getLocked() == null ? true : dto.getLocked());
-        account.setAllowedTransferFrom(dto.getAllowedTransferFrom() == null ? false : dto.getAllowedTransferFrom());
-        account.setAllowedTransferTo(dto.getAllowedTransferTo() == null ? false : dto.getAllowedTransferTo());
-        account.setAllowedCashDeposit(dto.getAllowedCashDeposit() == null ? false : dto.getAllowedCashDeposit());
-        account.setAllowedCashWithdrawal(dto.getAllowedCashWithdrawal() == null ? false : dto.getAllowedCashWithdrawal());
-        account.setAllowedManualTransaction(dto.getAllowedManualTransaction() == null ? false : dto.getAllowedManualTransaction());
+        account.setLocked(dto.getLocked() == null || dto.getLocked());
+        account.setAllowedTransferFrom(dto.getAllowedTransferFrom() != null && dto.getAllowedTransferFrom());
+        account.setAllowedTransferTo(dto.getAllowedTransferTo() != null && dto.getAllowedTransferTo());
+        account.setAllowedCashDeposit(dto.getAllowedCashDeposit() != null && dto.getAllowedCashDeposit());
+        account.setAllowedCashWithdrawal(dto.getAllowedCashWithdrawal() != null && dto.getAllowedCashWithdrawal());
+        account.setAllowedManualTransaction(dto.getAllowedManualTransaction() != null && dto.getAllowedManualTransaction());
     }
 
     public Account getBalanceAccount(Account parentAccount, Account account, Long id,

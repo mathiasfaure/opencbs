@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -112,7 +113,7 @@ public class PersonController extends BaseController {
         return accounts
                 .stream()
                 .map(this.accountMapper::accountToProfileDto)
-                .peek(x -> x.setBalance(this.personService.getBalance(x.getId()).setScale(2, BigDecimal.ROUND_HALF_EVEN)))
+                .peek(x -> x.setBalance(this.personService.getBalance(x.getId()).setScale(2, RoundingMode.HALF_EVEN)))
                 .collect(Collectors.toList());
     }
 

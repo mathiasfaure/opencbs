@@ -24,6 +24,7 @@ import org.springframework.data.domain.Pageable;
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -99,7 +100,7 @@ public class BorrowingRepositoryImpl extends BaseRepository<Borrowing> implement
     private Criterion getActivatedCriterion(LocalDateTime dateTime) {
         Criterion criterion = Restrictions.and(
                 Restrictions.le("activated.effectiveAt", dateTime),
-                Restrictions.in("activated.eventType", Arrays.asList(EventType.DISBURSEMENT)),
+                Restrictions.in("activated.eventType", Collections.singletonList(EventType.DISBURSEMENT)),
                 Restrictions.ne("activated.deleted", true));
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(BorrowingEvent.class, "activated")
                 .add(criterion)

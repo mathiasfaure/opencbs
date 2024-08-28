@@ -13,7 +13,7 @@ public enum AccountTagType {
     LOSS_ACCOUNT(11L),
     BANK_ACCOUNT(12L);
 
-    private Long Id;
+    private final Long Id;
 
     AccountTagType(Long id) {
         this.Id = id;

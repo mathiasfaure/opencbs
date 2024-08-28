@@ -22,7 +22,7 @@ public class LoanApplicationPayeesValidator {
     public void validate(LoanApplicationPayeesDto dto, LoanApplication loanApplication) {
         LocalDate loanApplicationDisbursementDate = loanApplication.getDisbursementDate();
         LocalDate loanApplicationPayeeDisbursementDate = dto.getDisbursementDate();
-        Assert.isTrue(loanApplicationPayeeDisbursementDate.compareTo(loanApplicationDisbursementDate) >= 0, "Date should be later than loan disbursement date.");
+        Assert.isTrue(!loanApplicationPayeeDisbursementDate.isBefore(loanApplicationDisbursementDate), "Date should be later than loan disbursement date.");
     }
 
     public void refundValidate(LoanApplicationPayees payee) {

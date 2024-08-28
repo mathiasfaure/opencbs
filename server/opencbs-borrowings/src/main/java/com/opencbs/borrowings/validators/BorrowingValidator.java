@@ -84,7 +84,6 @@ public class BorrowingValidator {
                 .stream()
                 .filter(x -> x.getEventType().equals(EventType.CLOSED))
                 .findFirst();
-        closedEvent.ifPresent(borrowingEventEvent -> Assert.isTrue(borrowingEventEvent.getEffectiveAt()
-                .compareTo(LocalDateTime.now()) <= 0, "Borrowing is closed."));
+        closedEvent.ifPresent(borrowingEventEvent -> Assert.isTrue(!borrowingEventEvent.getEffectiveAt().isAfter(LocalDateTime.now()), "Borrowing is closed."));
     }
 }

@@ -91,11 +91,7 @@ public class LoanMapper {
 
     private Boolean isLoanReadOnly(Long loanId) {
         RequestService requestService = this.applicationContext.getBean(RequestService.class);
-        if (requestService.isActiveRequestByModuleType(ModuleType.LOANS, loanId)) {
-            return true;
-        }
-
-        return false;
+        return requestService.isActiveRequestByModuleType(ModuleType.LOANS, loanId);
     }
 
     public LoanDto mapToDtoWithSplitProfile(Loan loan) {

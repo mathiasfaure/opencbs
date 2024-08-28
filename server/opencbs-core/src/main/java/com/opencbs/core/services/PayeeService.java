@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class PayeeService {
 
-    private PayeeRepository payeeRepository;
+    private final PayeeRepository payeeRepository;
     private final PayeeMapper payeeMapper;
 
     @Autowired

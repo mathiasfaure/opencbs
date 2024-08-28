@@ -60,7 +60,7 @@ public class LoanPenaltyAccountService {
 
     private Account createAccount(Account account, String name, Long penaltyId) {
         if ( !(account.getType() == AccountType.BALANCE || account.getType() == AccountType.SUBGROUP) ){
-                throw new RuntimeException(String.format("Account %s should be %s or %s", account.getNumber(), AccountType.BALANCE.toString(), AccountType.SUBGROUP.toString()));
+                throw new RuntimeException(String.format("Account %s should be %s or %s", account.getNumber(), AccountType.BALANCE, AccountType.SUBGROUP));
         }
 
         if (AccountType.BALANCE == account.getType()) {

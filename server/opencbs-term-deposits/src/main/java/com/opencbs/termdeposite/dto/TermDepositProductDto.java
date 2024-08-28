@@ -34,5 +34,5 @@ public class TermDepositProductDto extends BaseDto {
 
     private TermDepositProductAccountDto accountList;
 
-    private StatusType statusType = StatusType.ACTIVE;
+    private final StatusType statusType = StatusType.ACTIVE;
 }

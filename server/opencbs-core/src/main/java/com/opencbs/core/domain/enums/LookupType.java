@@ -15,8 +15,8 @@ public enum LookupType {
     TILLS("tills", "Tills"),
     ACCOUNTS("accounting", "Accounts");
 
-    private String name;
-    private String key;
+    private final String name;
+    private final String key;
 
     LookupType(String name, String key) {
         this.name = name;

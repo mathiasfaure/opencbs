@@ -162,12 +162,12 @@ public class LoanApplicationValidator {
         Assert.notNull(dto.getDisbursementDate(), "Disbursement date is required.");
         Assert.isTrue(!DateHelper.isDayOff(dto.getDisbursementDate()), "Disbursement date should be a working date");
         Assert.notNull(dto.getPreferredRepaymentDate(), "Preferred repayment date is required.");
-        Assert.isTrue(dto.getDisbursementDate().compareTo(dto.getPreferredRepaymentDate()) < 0, "Disbursement date should precede Preferred repayment date.");
+        Assert.isTrue(dto.getDisbursementDate().isBefore(dto.getPreferredRepaymentDate()), "Disbursement date should precede Preferred repayment date.");
         Assert.notNull(dto.getProfileId(), "Profile ID is required.");
         if (dto.getScheduleBasedType().equals(ScheduleBasedType.BY_MATURITY)) {
             Assert.isTrue(!DateHelper.isDayOff(dto.getMaturityDate()), "Maturity date should be a working date");
-            Assert.isTrue(dto.getPreferredRepaymentDate().compareTo(dto.getMaturityDate()) <= 0, "Preferred repayment date cannot be greater than Maturity date.");
-            Assert.isTrue(dto.getMaturityDate().compareTo(loanProduct.getMaturityDateMax()) <= 0, "Maturity date cannot be greater than Max maturity date.");
+            Assert.isTrue(!dto.getPreferredRepaymentDate().isAfter(dto.getMaturityDate()), "Preferred repayment date cannot be greater than Maturity date.");
+            Assert.isTrue(!dto.getMaturityDate().isAfter(loanProduct.getMaturityDateMax()), "Maturity date cannot be greater than Max maturity date.");
         }
 
         this.profileService.findOne(dto.getProfileId()).orElseThrow(() -> new ResourceNotFoundException(
@@ -199,7 +199,7 @@ public class LoanApplicationValidator {
                             loanProduct.getMaturityMin(), loanProduct.getMaturityMax()));
 
             Assert.isTrue(dto.getGracePeriod() < dto.getMaturity(),
-                    String.format("Grace period must be less than number of installments"));
+                    "Grace period must be less than number of installments");
         }
 
         if (dto.getScheduleBasedType().equals(ScheduleBasedType.BY_MATURITY)) {
@@ -208,7 +208,7 @@ public class LoanApplicationValidator {
             if (maturity==0 && daysBetween!=0) {
                 maturity = 1;
             }
-            Assert.isTrue(dto.getGracePeriod() < maturity, String.format("Grace period must be less than number of installments"));
+            Assert.isTrue(dto.getGracePeriod() < maturity, "Grace period must be less than number of installments");
         }
 
         Assert.isTrue(!(loanProduct.getCurrency() == null && dto.getCurrencyId() == null), "Currency is required.");

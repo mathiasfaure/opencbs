@@ -72,7 +72,7 @@ public class CompanyService extends ProfileBaseService<Company, CompanyCustomFie
                 .stream()
                 .filter(x -> x.getMember().getId().equals(memberId) && x.getLeftDate() == null)
                 .findFirst()
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Member not found (ID=%d).")));
+                .orElseThrow(() -> new ResourceNotFoundException("Member not found (ID=%d)."));
         member.setLeftDate(DateHelper.getLocalDateTimeNow());
         this.companyMemberService.save(member);
         return company;

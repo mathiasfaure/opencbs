@@ -10,7 +10,7 @@ import org.springframework.util.StringUtils;
 @Validator
 public class PayeeValidator {
 
-    private PayeeService payeeService;
+    private final PayeeService payeeService;
 
     @Autowired
     public PayeeValidator(PayeeService payeeService) {

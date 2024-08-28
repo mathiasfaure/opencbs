@@ -20,7 +20,7 @@ public class PermissionAspect {
         if(currentUser.getId() == 2 || currentUser.getIsSystemUser())
             return;
 
-        Method method = MethodSignature.class.cast(joinPoint.getSignature()).getMethod();
+        Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
         if (!currentUser.hasPermission(method.getAnnotation(PermissionRequired.class).name())) {
             throw new RuntimeException("You don't have permissions - " + method.getAnnotation(PermissionRequired.class).name());
         }

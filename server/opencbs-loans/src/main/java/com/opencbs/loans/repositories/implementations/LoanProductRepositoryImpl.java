@@ -40,7 +40,7 @@ public class LoanProductRepositoryImpl extends BaseRepository<LoanProduct> imple
         List<LoanProduct> results = criteria.list();
         results = results.stream()
                 .filter(x -> (x.getAvailability() & request.getAvailability().getId()) == request.getAvailability().getId())
-                .skip(pageable.getPageNumber() * pageable.getPageSize())
+                .skip((long) pageable.getPageNumber() * pageable.getPageSize())
                 .limit(pageable.getPageSize())
                 .collect(Collectors.toList());
 

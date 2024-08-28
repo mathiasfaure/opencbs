@@ -7,7 +7,7 @@ public enum TermDepositAction {
     TRANSACTION_AMOUNT_TO_TERM_DEPOSIT_ACCOUNT("Transaction amount from current account to deposit"),
     TRANSACTION_AMOUNT_TO_EARLY_CLOSE_FEE("Transaction amount from current account to early close fee");
 
-    private String message;
+    private final String message;
 
     TermDepositAction(String message) {
         this.message = message;

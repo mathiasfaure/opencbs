@@ -79,7 +79,7 @@ public class LoanAccountService {
             Account parent = loanProductAccount.getAccount();
 
             if (parent.getType() != AccountType.SUBGROUP && parent.getType() != AccountType.BALANCE)
-                throw new RuntimeException(String.format("Account %s should be %s or %s", parent.getNumber(), AccountType.BALANCE.toString(), AccountType.SUBGROUP.toString()));
+                throw new RuntimeException(String.format("Account %s should be %s or %s", parent.getNumber(), AccountType.BALANCE, AccountType.SUBGROUP));
 
             loanAccount.setLoan(loan);
             loanAccount.setAccountRuleType(loanProductAccount.getAccountRuleType());

@@ -26,8 +26,8 @@ public abstract class ProfileBaseRepositoryImpl<T extends Profile> extends BaseR
                 "and lower(cfv.status) like lower(:statusLive)";
 
         Map<String, String> searchParams = new HashMap();
-        searchParams.put("statusLive", "%" + EntityStatus.LIVE.toString() + "%");
-        searchParams.put("statusPending", "%" + EntityStatus.PENDING.toString() + "%");
+        searchParams.put("statusLive", "%" + EntityStatus.LIVE + "%");
+        searchParams.put("statusPending", "%" + EntityStatus.PENDING + "%");
 
         return this.doPageableQuery(queryString, searchParams, pageable);
     }
@@ -40,8 +40,8 @@ public abstract class ProfileBaseRepositoryImpl<T extends Profile> extends BaseR
                 "and lower(cfv.status) like lower(:statusLive)";
 
         Map<String, String> searchParams = new HashMap();
-        searchParams.put("statusLive", "%" + EntityStatus.LIVE.toString() + "%");
-        searchParams.put("statusPending", "%" + EntityStatus.PENDING.toString() + "%");
+        searchParams.put("statusLive", "%" + EntityStatus.LIVE + "%");
+        searchParams.put("statusPending", "%" + EntityStatus.PENDING + "%");
         searchParams.put("searchString", "%" + searchString + "%");
 
         return this.doPageableQuery(queryString, searchParams, pageable);

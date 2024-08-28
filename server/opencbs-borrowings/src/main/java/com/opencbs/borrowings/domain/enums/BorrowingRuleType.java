@@ -5,7 +5,7 @@ public enum BorrowingRuleType {
     INTEREST_ACCRUAL(2),
     INTEREST_EXPENSE(3);
 
-    private int order;
+    private final int order;
 
     BorrowingRuleType(int order) {
         this.order = order;

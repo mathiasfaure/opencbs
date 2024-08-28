@@ -25,7 +25,7 @@ public class BorrowingInstallment extends BaseInstallment {
     private Borrowing borrowing;
 
     @Transient
-    private BigDecimal accruedInterest = BigDecimal.ZERO;
+    private final BigDecimal accruedInterest = BigDecimal.ZERO;
 
     public BorrowingInstallment() { }
 

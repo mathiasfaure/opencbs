@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 public class UserHelper {
 
     private static UserService userService;
-    private static Long SYSTEM_USER_ID = 1L;
-    private static String permission = "PRIMARY_CREDIT_COMMITTEE_MEMBER";
+    private static final Long SYSTEM_USER_ID = 1L;
+    private static final String permission = "PRIMARY_CREDIT_COMMITTEE_MEMBER";
 
     public static User getCurrentUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

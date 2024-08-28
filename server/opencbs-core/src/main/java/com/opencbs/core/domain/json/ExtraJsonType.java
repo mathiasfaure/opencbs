@@ -12,6 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,7 +40,7 @@ public class ExtraJsonType implements UserType {
             return null;
         }
         try {
-            return mapper.readValue(cellContent.getBytes("UTF-8"), returnedClass());
+            return mapper.readValue(cellContent.getBytes(StandardCharsets.UTF_8), returnedClass());
         } catch (final Exception ex) {
             throw new RuntimeException("Failed to convert String to Json: " + ex.getMessage(), ex);
         }

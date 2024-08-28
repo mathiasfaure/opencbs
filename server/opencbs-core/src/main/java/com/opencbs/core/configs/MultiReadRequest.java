@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 @Slf4j
 public class MultiReadRequest extends HttpServletRequestWrapper {
 
-    private final byte cashedBytes[];
+    private final byte[] cashedBytes;
 
 
     public MultiReadRequest(HttpServletRequest request) throws IOException {

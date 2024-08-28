@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -45,7 +46,7 @@ public class BorrowingAccountingService {
             return;
         AccountingEntry accountingEntry = this.getAccountEntry(event, debitAccount, creditAccount, "Disbursement borrowing");
         accountingEntry = this.accountingEntryService.create(accountingEntry);
-        event.setAccountingEntry(Arrays.asList(accountingEntry));
+        event.setAccountingEntry(Collections.singletonList(accountingEntry));
     }
 
     public void createInterestAccrualAccountingEntry(BorrowingEvent event) {
@@ -56,7 +57,7 @@ public class BorrowingAccountingService {
             return;
         AccountingEntry accountingEntry = this.getAccountEntry(event, debitAccount, creditAccount, "Interest accrual");
         accountingEntry = this.accountingEntryService.create(accountingEntry);
-        event.setAccountingEntry(Arrays.asList(accountingEntry));
+        event.setAccountingEntry(Collections.singletonList(accountingEntry));
     }
 
     public List<AccountingEntry> getPrincipalRepaymentAccountingEntry(BorrowingEvent event) {

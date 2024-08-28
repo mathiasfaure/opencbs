@@ -91,7 +91,7 @@ public class BondInterestAccrualProcessor implements BondDayClosureProcessor {
 
         BondEvent event = new BondEvent();
         event.setCreatedAt(DateHelper.getLocalDateTimeNow());
-        if (closureDate.compareTo(getSellDate(bond).toLocalDate()) > 0) {
+        if (closureDate.isAfter(getSellDate(bond).toLocalDate())) {
             event.setEffectiveAt(closureDateTime);
         } else {
             event.setEffectiveAt(closureDateTime.plusMinutes(1));
@@ -144,7 +144,7 @@ public class BondInterestAccrualProcessor implements BondDayClosureProcessor {
                 .filter(x -> x.getLastAccrualDate().compareTo(ChronoLocalDate.from(date.minusDays(1))) > 0)
                 .map(BondInstallmentInterestAccrual::getLastAccrualDate)
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("No installments found"));       ;
+                .orElseThrow(() -> new RuntimeException("No installments found"));
 
         Integer installmentNumber = getBondInstallmentNumber(installments, date);
         if (date.equals(lastAccrualDate)) {

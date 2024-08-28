@@ -14,7 +14,7 @@ public enum SortType {
     BRANCH_NAME("branch"),
     STATUS("status");
 
-    private String name;
+    private final String name;
 
     SortType(String name) {
         this.name = name;

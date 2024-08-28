@@ -29,5 +29,5 @@ public class TermDepositProductDetailsDto extends BaseDto {
     private BigDecimal earlyCloseFeeRateMax;
     private List<TermDepositProductAccountDetailsDto> accounts;
     private boolean isReadOnly;
-    private StatusType statusType = StatusType.ACTIVE;
+    private final StatusType statusType = StatusType.ACTIVE;
 }

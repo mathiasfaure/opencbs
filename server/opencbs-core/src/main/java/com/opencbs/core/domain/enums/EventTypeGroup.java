@@ -10,5 +10,5 @@ public enum EventTypeGroup {
     BOND_VALUE_DATE,
     GAIN_LOSS,
     REFUND,
-    ROLLBACK;
+    ROLLBACK
 }

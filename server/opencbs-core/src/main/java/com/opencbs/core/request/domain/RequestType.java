@@ -37,7 +37,7 @@ public enum RequestType {
     GROUP_CREATE(null),
     GROUP_EDIT(null);
 
-    private ModuleType Type;
+    private final ModuleType Type;
 
     private Boolean event = false;
 

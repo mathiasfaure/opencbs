@@ -202,7 +202,7 @@ public class LoanPenaltyAccrualProcessor implements LoanDayClosureProcessor {
 
         final boolean wasAccrual = this.loanPenaltyEventRepository.findAllByLoanIdAndLoanApplicationPenaltyId(loanInstallments.get(0).getLoanId(), loanApplicationPenalty.getId())
                 .stream()
-                .filter(loanEvent -> loanEvent.getEffectiveAt().compareTo(LocalDateTime.of(min, LOAN_PENALTY_ACCRUAL.getOperationTime())) > 0)
+                .filter(loanEvent -> loanEvent.getEffectiveAt().isAfter(LocalDateTime.of(min, LOAN_PENALTY_ACCRUAL.getOperationTime())))
                 .count() > 0;
         return wasAccrual;
     }

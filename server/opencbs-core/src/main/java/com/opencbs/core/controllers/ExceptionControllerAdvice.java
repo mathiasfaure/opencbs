@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class ExceptionControllerAdvice {
-    private static Logger log = Logger.getLogger(ExceptionControllerAdvice.class);
+    private static final Logger log = Logger.getLogger(ExceptionControllerAdvice.class);
 
     @ExceptionHandler(ApiException.class)
     public ResponseEntity<ErrorResponse> exceptionHandler(ApiException ex){

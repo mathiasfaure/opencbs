@@ -189,7 +189,7 @@ public class LoanProductValidator {
                 .count();
         if (countOfProvision>0){
             this.checkAccountIsValid(loanProductDto,
-                    Arrays.asList(new AccountRuleType[] {AccountRuleType.LOAN_LOSS_RESERVE, AccountRuleType.PROVISION_ON_PRINCIPAL, AccountRuleType.PROVISION_REVERSAL_ON_PRINCIPAL}));
+                    Arrays.asList(AccountRuleType.LOAN_LOSS_RESERVE, AccountRuleType.PROVISION_ON_PRINCIPAL, AccountRuleType.PROVISION_REVERSAL_ON_PRINCIPAL));
         }
 
         countOfProvision = loanProductDto.getProvisioning().stream()
@@ -197,7 +197,7 @@ public class LoanProductValidator {
                 .count();
         if (countOfProvision>0){
             this.checkAccountIsValid(loanProductDto,
-                    Arrays.asList(new AccountRuleType[] {AccountRuleType.LOAN_LOSS_RESERVE_INTEREST, AccountRuleType.PROVISION_ON_INTERESTS, AccountRuleType.PROVISION_REVERSAL_ON_INTERESTS}));
+                    Arrays.asList(AccountRuleType.LOAN_LOSS_RESERVE_INTEREST, AccountRuleType.PROVISION_ON_INTERESTS, AccountRuleType.PROVISION_REVERSAL_ON_INTERESTS));
         }
 
         countOfProvision = loanProductDto.getProvisioning().stream()
@@ -205,7 +205,7 @@ public class LoanProductValidator {
                 .count();
         if (countOfProvision>0){
             this.checkAccountIsValid(loanProductDto,
-                    Arrays.asList(new AccountRuleType[] {AccountRuleType.LOAN_LOSS_RESERVE_PENALTIES, AccountRuleType.PROVISION_ON_LATE_FEES, AccountRuleType.PROVISION_REVERSAL_ON_LATE_FEES}));
+                    Arrays.asList(AccountRuleType.LOAN_LOSS_RESERVE_PENALTIES, AccountRuleType.PROVISION_ON_LATE_FEES, AccountRuleType.PROVISION_REVERSAL_ON_LATE_FEES));
         }
 
     }

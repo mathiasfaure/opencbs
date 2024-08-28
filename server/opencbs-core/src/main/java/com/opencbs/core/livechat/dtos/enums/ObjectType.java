@@ -6,5 +6,5 @@ public enum ObjectType {
     LOAN,
     TERM_DEPOSIT,
     BORROWING,
-    BOND;
+    BOND
 }

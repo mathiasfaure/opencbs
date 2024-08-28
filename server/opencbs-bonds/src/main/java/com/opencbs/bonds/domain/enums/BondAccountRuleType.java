@@ -7,7 +7,7 @@ public enum  BondAccountRuleType {
     INCOME_COMMISSION(4),
     PENALTY(5);
 
-    private int order;
+    private final int order;
 
     BondAccountRuleType(int order){
         this.order = order;

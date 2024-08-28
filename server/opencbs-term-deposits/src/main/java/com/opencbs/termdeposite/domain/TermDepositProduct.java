@@ -83,5 +83,5 @@ public class TermDepositProduct extends BaseEntity implements NamedEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name="status", nullable = false)
-    private StatusType statusType = StatusType.ACTIVE;
+    private final StatusType statusType = StatusType.ACTIVE;
 }

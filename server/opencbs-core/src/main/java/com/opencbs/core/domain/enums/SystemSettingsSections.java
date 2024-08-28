@@ -6,7 +6,7 @@ public enum SystemSettingsSections {
     DATETIME_FORMAT(2),
     NUMBER_FORMAT(3);
 
-    private int id;
+    private final int id;
 
     SystemSettingsSections(int id) {
         this.id = id;

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class CustomFieldSectionService<Tcfs extends CustomFieldSection, Trepo extends Repository<Tcfs>> {
 
-    private Trepo repository;
+    private final Trepo repository;
 
     public CustomFieldSectionService(Trepo repository) {
         this.repository = repository;

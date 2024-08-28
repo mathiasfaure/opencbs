@@ -44,7 +44,7 @@ public abstract class AbstractAnnuityGenerator extends BaseScheduleGenerator {
         int counter = 0;
         int number = installments.size();
 
-        long days = period * 30 + this.days;
+        long days = period * 30L + this.days;
         BigDecimal interestRate = this.getInterestRate(params.getInterestRate())
                 .multiply(BigDecimal.valueOf(days))
                 .divide(BigDecimal.valueOf(this.getDaysInYear()), ROUNDING_MODE); //TODO

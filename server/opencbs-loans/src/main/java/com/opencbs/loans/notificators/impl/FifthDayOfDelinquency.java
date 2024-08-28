@@ -77,10 +77,6 @@ public class FifthDayOfDelinquency implements LoanRemember {
         }
 
         final LoanInstallment firstDelinquencyInstallment = expiredInstallments.get(0);
-        if (!DateHelper.equal(firstDelinquencyInstallment.getMaturityDate().plusDays(DAYS_OF_DELINQUENCY), date)) {
-            return false;
-        }
-
-        return true;
+        return DateHelper.equal(firstDelinquencyInstallment.getMaturityDate().plusDays(DAYS_OF_DELINQUENCY), date);
     }
 }

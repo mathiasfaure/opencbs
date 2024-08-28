@@ -15,7 +15,7 @@ public enum SavingAccountRuleType {
     CLOSE_FEE(12),
     CLOSE_FEE_INCOME(13);
 
-    private int order;
+    private final int order;
 
     SavingAccountRuleType(int order) {
         this.order = order;

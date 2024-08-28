@@ -25,9 +25,9 @@ public enum ProcessType {
 
     BOND_INTEREST_ACCRUAL(ModuleType.BONDS, 14, LocalTime.of(0,11,0));
 
-    private ModuleType moduleType;
-    private int order;
-    private LocalTime operationTime;
+    private final ModuleType moduleType;
+    private final int order;
+    private final LocalTime operationTime;
 
     ProcessType(ModuleType moduleType, int order, LocalTime operationTime) {
         this.moduleType = moduleType;

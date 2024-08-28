@@ -31,12 +31,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -230,7 +225,7 @@ public class BorrowingService {
                 .stream()
                 .filter(x -> DateHelper.lessOrEqual(x.getEffectiveAt(), dateTime))
                 .filter(
-                        x -> Arrays.asList(EventType.DISBURSEMENT).contains(x.getEventType())
+                        x -> Collections.singletonList(EventType.DISBURSEMENT).contains(x.getEventType())
                 )
                 .map(x -> x.getAmount())
                 .reduce(BigDecimal.ZERO, BigDecimal::add);

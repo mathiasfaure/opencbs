@@ -18,7 +18,7 @@ public enum AccountRuleType {
     EARLY_PARTIAL_REPAYMENT_FEE_INCOME(18),
     EARLY_TOTAL_REPAYMENT_FEE_INCOME(19);
 
-    private int order;
+    private final int order;
 
     AccountRuleType(int order) {
         this.order = order;

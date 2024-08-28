@@ -145,9 +145,9 @@ public class SavingProduct extends NamedBaseEntity implements NamedEntity {
     private List<SavingProductAccount> accounts;
 
     @Column(name = "min_balance", nullable = false)
-    private BigDecimal minBalance = BigDecimal.ZERO;
+    private final BigDecimal minBalance = BigDecimal.ZERO;
 
     @Enumerated(EnumType.STRING)
     @Column(name="status", nullable = false)
-    private StatusType statusType = StatusType.ACTIVE;
+    private final StatusType statusType = StatusType.ACTIVE;
 }

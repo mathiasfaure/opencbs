@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class CollateralService {
 
-    private CollateralRepository collateralRepository;
+    private final CollateralRepository collateralRepository;
 
     @Autowired
     public CollateralService(CollateralRepository collateralRepository) {

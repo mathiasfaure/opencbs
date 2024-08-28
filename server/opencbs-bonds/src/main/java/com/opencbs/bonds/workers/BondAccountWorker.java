@@ -85,9 +85,6 @@ public class BondAccountWorker {
 
     private boolean checkIfExists(BondAccount bondAccount) {
         Account account = bondAccount.getAccount();
-        if (account.getId() == null) {
-            return true;
-        }
-        return false;
+        return account.getId() == null;
     }
 }

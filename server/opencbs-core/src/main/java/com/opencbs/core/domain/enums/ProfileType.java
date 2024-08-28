@@ -9,7 +9,7 @@ public enum ProfileType {
     COMPANY(2),
     GROUP(4);
 
-    private int id;
+    private final int id;
 
     private static final Map<String, ProfileType> stringToEnum = new HashMap<>();
 

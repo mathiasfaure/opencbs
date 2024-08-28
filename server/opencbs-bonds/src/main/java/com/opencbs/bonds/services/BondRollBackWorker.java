@@ -167,7 +167,7 @@ public class BondRollBackWorker {
                 .allMatch(x -> x.getActualDate().equals(actualDate));
 
         if (!isDate) {
-            throw new RuntimeException(String.format("The contract isn't actualized"));
+            throw new RuntimeException("The contract isn't actualized");
         }
 
         if (DateHelper.lessOrEqual(date, actualDate)) {

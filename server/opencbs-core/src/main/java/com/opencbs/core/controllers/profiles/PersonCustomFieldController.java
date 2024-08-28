@@ -107,7 +107,7 @@ public class PersonCustomFieldController extends BaseController {
     @DeleteMapping(value = "/{fieldId}")
     public void deleteCustomField(@PathVariable @NonNull Long fieldId) {
         CustomField customField = this.personCustomFieldService.findOne(fieldId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Field not found (ID=%d).")));
+                .orElseThrow(() -> new ResourceNotFoundException("Field not found (ID=%d)."));
 
         this.personCustomFieldService.delete(customField);
     }

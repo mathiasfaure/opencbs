@@ -83,29 +83,17 @@ public class RequestService {
 
     public boolean isActiveRequest(RequestType requestType, Long entityId) {
         Optional<Request> request = this.requestRepository.findByTypeAndEntityIdAndDeletedFalse(requestType, entityId);
-        if (request.isPresent()) {
-            return true;
-        }
-
-        return false;
+        return request.isPresent();
     }
 
     public boolean isActiveRequestByModuleType(ModuleType moduleType, Long entityId) {
         List<Request> requests = this.requestRepository.findAllByModuleTypeAndEntityIdAndDeletedFalse(moduleType, entityId);
-        if (!requests.isEmpty()) {
-            return true;
-        }
-
-        return false;
+        return !requests.isEmpty();
     }
 
     public boolean isActiveRequests() {
         Optional<Request> request = this.requestRepository.findFirstByDeletedFalse();
-        if (request.isPresent()) {
-            return true;
-        }
-
-        return false;
+        return request.isPresent();
     }
 
     public List<ActionRequest> getApprovedIdsByUserAndDate(User user, LocalDate fromDate, LocalDate toDate) {

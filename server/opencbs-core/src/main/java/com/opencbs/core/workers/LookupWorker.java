@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class LookupWorker {
 
-    private List<LookupInterface> lookupServiceList;
+    private final List<LookupInterface> lookupServiceList;
 
     @Autowired
     LookupWorker(List<LookupInterface> lookupServiceList) {

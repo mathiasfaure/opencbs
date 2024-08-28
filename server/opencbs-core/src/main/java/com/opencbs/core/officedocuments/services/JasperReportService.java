@@ -47,7 +47,7 @@ public class JasperReportService implements ReportService<ExcelTemplate, ExcelRe
     private final String META_LABEL = "meta.label";
     private final String META_GROUP = "meta.group";
 
-    private static Map<String, JasperTemplate> jasperTemplates = new HashMap<>();
+    private static final Map<String, JasperTemplate> jasperTemplates = new HashMap<>();
     private final TemplateProperty templateProperty;
     private final DataSource dataSource;
     private final JasperExporterHelper jasperExporterHelper;
@@ -57,7 +57,7 @@ public class JasperReportService implements ReportService<ExcelTemplate, ExcelRe
     private void init() throws Exception {
         Path reportsFolder = templateProperty.getPath().resolve(TEMPLATE_FOLDER_NAME);
         if (!this.isDirectoryExist(reportsFolder)){
-            log.warn("Directory for JASPER reports with name {} not found", reportsFolder.toString());
+            log.warn("Directory for JASPER reports with name {} not found", reportsFolder);
             return;
         }
 

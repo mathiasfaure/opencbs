@@ -29,7 +29,7 @@ public enum ScheduleGeneratorTypes {
     FIXED_PRINCIPAL_ANNUAL(365),
     ANNUITY_ANNUAL(365);
 
-    private int days;
+    private final int days;
 
     ScheduleGeneratorTypes(int days) {
         this.days = days;

@@ -51,8 +51,8 @@ public class ProfileRepositoryImpl implements ProfileRepositoryCustom {
                 "where lower(sp.status) like lower(:statusLive) or lower(sp.status) like lower(:statusPending)";
 
         Map<String, Object> searchParams = new HashMap();
-        searchParams.put("statusLive", "%" + EntityStatus.LIVE.toString() + "%");
-        searchParams.put("statusPending", "%" + EntityStatus.PENDING.toString() + "%");
+        searchParams.put("statusLive", "%" + EntityStatus.LIVE + "%");
+        searchParams.put("statusPending", "%" + EntityStatus.PENDING + "%");
 
         return this.doPageableQuery(queryString, searchParams, pageable);
     }
@@ -64,8 +64,8 @@ public class ProfileRepositoryImpl implements ProfileRepositoryCustom {
                 "and lower(sp.searchableContent) like lower(:searchString)";
 
         Map<String, Object> searchParams = new HashMap();
-        searchParams.put("statusLive", "%" + EntityStatus.LIVE.toString() + "%");
-        searchParams.put("statusPending", "%" + EntityStatus.PENDING.toString() + "%");
+        searchParams.put("statusLive", "%" + EntityStatus.LIVE + "%");
+        searchParams.put("statusPending", "%" + EntityStatus.PENDING + "%");
         searchParams.put("searchString", "%" + searchString + "%");
 
         return this.doPageableQuery(queryString, searchParams, pageable);
@@ -84,8 +84,8 @@ public class ProfileRepositoryImpl implements ProfileRepositoryCustom {
                 : " and id not in (:profileIds)";
 
         Map<String, Object> searchParams = new HashMap();
-        searchParams.put("statusLive", "%" + EntityStatus.LIVE.toString() + "%");
-        searchParams.put("statusPending", "%" + EntityStatus.PENDING.toString() + "%");
+        searchParams.put("statusLive", "%" + EntityStatus.LIVE + "%");
+        searchParams.put("statusPending", "%" + EntityStatus.PENDING + "%");
         searchParams.put("profileType", profileType.toString());
         if (searchString != null) {
             searchParams.put("searchString", "%" + searchString + "%");
@@ -104,8 +104,8 @@ public class ProfileRepositoryImpl implements ProfileRepositoryCustom {
                 "and lower(sp.customFieldValueStatuses) like lower(:statusLive)";
 
         Map<String, Object> searchParams = new HashMap();
-        searchParams.put("statusLive", "%" + EntityStatus.LIVE.toString() + "%");
-        searchParams.put("statusPending", "%" + EntityStatus.PENDING.toString() + "%");
+        searchParams.put("statusLive", "%" + EntityStatus.LIVE + "%");
+        searchParams.put("statusPending", "%" + EntityStatus.PENDING + "%");
 
         return this.doPageableQuery(queryString, searchParams, pageable);
     }
@@ -118,8 +118,8 @@ public class ProfileRepositoryImpl implements ProfileRepositoryCustom {
                 "and lower(sp.customFieldValueStatuses) like lower(:statusLive)";
 
         Map<String, Object> searchParams = new HashMap();
-        searchParams.put("statusLive", "%" + EntityStatus.LIVE.toString() + "%");
-        searchParams.put("statusPending", "%" + EntityStatus.PENDING.toString() + "%");
+        searchParams.put("statusLive", "%" + EntityStatus.LIVE + "%");
+        searchParams.put("statusPending", "%" + EntityStatus.PENDING + "%");
         searchParams.put("searchString", "%" + searchString + "%");
 
         return this.doPageableQuery(queryString, searchParams, pageable);
@@ -137,8 +137,8 @@ public class ProfileRepositoryImpl implements ProfileRepositoryCustom {
         String searchString = query == null ? "%%" : "%" + query + "%";
 
         Map<String, Object> searchParams = new HashMap();
-        searchParams.put("statusLive", "%" + EntityStatus.LIVE.toString() + "%");
-        searchParams.put("statusPending", "%" + EntityStatus.PENDING.toString() + "%");
+        searchParams.put("statusLive", "%" + EntityStatus.LIVE + "%");
+        searchParams.put("statusPending", "%" + EntityStatus.PENDING + "%");
         searchParams.put("searchString", searchString);
         searchParams.put("excludedIds", ids);
 

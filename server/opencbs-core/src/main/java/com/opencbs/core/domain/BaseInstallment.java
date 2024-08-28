@@ -94,19 +94,19 @@ public abstract class BaseInstallment extends BaseEntity {
     }
 
     public boolean isBeforeOrEqualToDate(LocalDate date) {
-        return maturityDate.compareTo(date) <= 0;
+        return !maturityDate.isAfter(date);
     }
 
     public boolean isBeforeDate(LocalDateTime timestamp) {
-        return maturityDate.compareTo(timestamp.toLocalDate()) < 0;
+        return maturityDate.isBefore(timestamp.toLocalDate());
     }
 
     public boolean isAfter(LocalDateTime timestamp) {
-        return maturityDate.compareTo(timestamp.toLocalDate()) > 0;
+        return maturityDate.isAfter(timestamp.toLocalDate());
     }
 
     public boolean isOverdue(LocalDate date) {
-        return !isPaid() && maturityDate.compareTo(date) <= 0;
+        return !isPaid() && !maturityDate.isAfter(date);
     }
 
     public void addInterest(BigDecimal interest){

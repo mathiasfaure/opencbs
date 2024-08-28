@@ -138,8 +138,7 @@ public class BondValidator extends BaseValidator {
                 .filter(x -> x.getEventType().equals(EventType.CLOSED))
                 .findFirst();
 
-        closedEvent.ifPresent(bondEvent -> Assert.isTrue(bondEvent.getEffectiveAt()
-                .compareTo(LocalDateTime.now()) <= 0, "Bond is closed."));
+        closedEvent.ifPresent(bondEvent -> Assert.isTrue(!bondEvent.getEffectiveAt().isAfter(LocalDateTime.now()), "Bond is closed."));
     }
 
     public void repayValidateBond(Bond bond, RepaymentSplit repaymentSplit){

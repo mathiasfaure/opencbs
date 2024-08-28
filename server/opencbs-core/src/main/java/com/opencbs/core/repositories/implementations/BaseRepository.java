@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 
 public abstract class BaseRepository<Tentity extends BaseEntity> {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
     protected Class<Tentity> clazz;
 
     public BaseRepository(EntityManager entityManager, Class<Tentity> clazz) {

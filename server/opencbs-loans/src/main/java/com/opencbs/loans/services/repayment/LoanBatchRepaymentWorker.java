@@ -45,7 +45,7 @@ public class LoanBatchRepaymentWorker {
 
             LoanInstallment loanInstallment = this.loanService.findSchedule(loan.getId())
                     .stream()
-                    .filter((x) -> x.isPaid() == false && x.isPartiallyPaid() == false && x.getDeleted() == false)
+                    .filter((x) -> !x.isPaid() && !x.isPartiallyPaid() && !x.getDeleted())
                     .findFirst()
                     .get();
             BatchRepay batchRepay = new BatchRepay();

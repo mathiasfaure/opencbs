@@ -17,7 +17,7 @@ public class BorrowingExtended {
     }
 
     @Setter(AccessLevel.NONE)
-    private Borrowing borrowing;
+    private final Borrowing borrowing;
 
     private BigDecimal olb;
     private long lateDays;

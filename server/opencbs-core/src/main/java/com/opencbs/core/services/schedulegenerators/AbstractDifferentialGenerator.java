@@ -5,6 +5,7 @@ import com.opencbs.core.domain.schedule.ScheduleParams;
 import com.opencbs.core.services.HolidayService;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 
@@ -35,7 +36,7 @@ public abstract class AbstractDifferentialGenerator extends BaseScheduleGenerato
 
         for (Installment installment : installments) {
 
-            secInterest = amount.multiply(interest).divide(BigDecimal.valueOf(12), 2, BigDecimal.ROUND_HALF_UP);
+            secInterest = amount.multiply(interest).divide(BigDecimal.valueOf(12), 2, RoundingMode.HALF_UP);
             secInterest = secInterest.setScale(DECIMAL_PLACE, ROUNDING_MODE);
             BigDecimal oldAmount = amount;
 

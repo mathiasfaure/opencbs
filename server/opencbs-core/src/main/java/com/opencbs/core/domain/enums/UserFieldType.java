@@ -9,7 +9,7 @@ public enum UserFieldType{
     EMAIL("Email"),
     PHONE_NUMBER("Phone number");
 
-    private String type;
+    private final String type;
 
     UserFieldType(String type) {
         this.type = type;

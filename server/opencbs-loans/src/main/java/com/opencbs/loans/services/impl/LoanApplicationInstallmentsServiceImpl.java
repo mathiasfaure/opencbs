@@ -81,7 +81,7 @@ public class LoanApplicationInstallmentsServiceImpl implements LoanApplicationIn
                 return false;
             }
             prevMaturityData = installment.getMaturityDate();
-        };
+        }
 
         return true;
     }

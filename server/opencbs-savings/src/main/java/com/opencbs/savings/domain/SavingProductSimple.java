@@ -22,5 +22,5 @@ public class SavingProductSimple extends BaseEntity {
     private Long currencyId;
 
     @Column(name = "min_balance")
-    private BigDecimal minBalance = BigDecimal.ZERO;
+    private final BigDecimal minBalance = BigDecimal.ZERO;
 }

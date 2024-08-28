@@ -7,7 +7,7 @@ public enum TermDepositAccountType {
     INTEREST_WRITE_OFF(4),
     EARLY_CLOSE_FEE_ACCOUNT(5);
 
-    private int order;
+    private final int order;
 
     TermDepositAccountType(int order) {
         this.order = order;

@@ -7,6 +7,7 @@ import com.opencbs.core.services.HolidayService;
 import lombok.NonNull;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 public abstract class AbstractFlatGenerator extends BaseScheduleGenerator {
@@ -49,7 +50,7 @@ public abstract class AbstractFlatGenerator extends BaseScheduleGenerator {
             BigDecimal interest = params.getAmount()
                     .multiply(this.getInterestRate(params.getInterestRate()))
                     .multiply(BigDecimal.valueOf(installmentDays))
-                    .divide(BigDecimal.valueOf(daysInYear), BigDecimal.ROUND_HALF_EVEN)
+                    .divide(BigDecimal.valueOf(daysInYear), RoundingMode.HALF_EVEN)
                     .setScale(DECIMAL_PLACE, ROUNDING_MODE);
             installment.setInterest(interest);
 

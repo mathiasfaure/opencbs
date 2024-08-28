@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class ProfileHelper {
 
-    private static String EMAIL_CUSTOM_FIELD_CODE = "email";
+    private static final String EMAIL_CUSTOM_FIELD_CODE = "email";
 
     @Lazy
     @Autowired
@@ -39,6 +39,6 @@ public class ProfileHelper {
         //    return this.groupService.getCustomValueByCode((Group)profile, EMAIL_CUSTOM_FIELD_CODE);
         //}
 
-        throw new IllegalArgumentException(String.format("Profile can be Company, Person or Group types"));
+        throw new IllegalArgumentException("Profile can be Company, Person or Group types");
     }
 }

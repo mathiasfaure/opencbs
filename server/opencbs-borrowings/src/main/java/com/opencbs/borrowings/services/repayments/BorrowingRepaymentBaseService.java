@@ -51,13 +51,13 @@ abstract class BorrowingRepaymentBaseService {
 
     @Data
     class RepaymentResult {
-        private List<BorrowingInstallment> installments;
-        private Set<Integer> affectedNumbers;
-        private List<BorrowingEvent> events;
+        private final List<BorrowingInstallment> installments;
+        private final Set<Integer> affectedNumbers;
+        private final List<BorrowingEvent> events;
         private Borrowing borrowing;
         private LocalDateTime timestamp;
         private User currentUser;
-        private List<AccountingEntry> accountingEntries;
+        private final List<AccountingEntry> accountingEntries;
 
         RepaymentResult(
                 List<BorrowingInstallment> installments,

@@ -27,7 +27,7 @@ public class LoanAnalyticsDayClosureProcessor implements LoanDayClosureProcessor
             return;
         }
 
-        if (analytic.getCloseDate() != null && analytic.getCloseDate().toLocalDate().compareTo(dateTime.toLocalDate()) < 0) {
+        if (analytic.getCloseDate() != null && analytic.getCloseDate().toLocalDate().isBefore(dateTime.toLocalDate())) {
             return;
         }
 

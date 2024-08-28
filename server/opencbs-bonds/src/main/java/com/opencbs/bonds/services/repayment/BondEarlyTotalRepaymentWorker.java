@@ -14,6 +14,7 @@ import com.opencbs.core.helpers.DateHelper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -128,7 +129,7 @@ public class BondEarlyTotalRepaymentWorker extends BondRepaymentBaseService impl
     private BigDecimal getPenalty(BondInstallment installment, Bond bond) {
         return installment.getPrincipal()
                 .multiply(bond.getPenaltyRate()
-                        .divide(BigDecimal.valueOf(100), 2, BigDecimal.ROUND_HALF_UP));
+                        .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP));
     }
 
     private List<BondInstallment> getUnpaidInstallments(List<BondInstallment> installments) {

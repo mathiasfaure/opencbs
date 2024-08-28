@@ -204,7 +204,7 @@ public class TaskEventService {
         Long finalMonths = months;
         return this.findByUserId(userId)
                 .stream()
-                .filter(x -> x.getStartDate().compareTo(startDate.plusMonths(finalMonths)) <= 0)
+                .filter(x -> !x.getStartDate().isAfter(startDate.plusMonths(finalMonths)))
                 .collect(Collectors.toList());
     }
 

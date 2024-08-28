@@ -27,5 +27,5 @@ public class TermDepositProductSimplifiedDto extends BaseDto {
     private BigDecimal earlyCloseFeeFlatMax;
     private BigDecimal earlyCloseFeeRateMin;
     private BigDecimal earlyCloseFeeRateMax;
-    private StatusType statusType = StatusType.ACTIVE;
+    private final StatusType statusType = StatusType.ACTIVE;
 }

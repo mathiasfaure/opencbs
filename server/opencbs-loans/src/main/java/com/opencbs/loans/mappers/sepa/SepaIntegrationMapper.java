@@ -22,6 +22,7 @@ import io.jsonwebtoken.lang.Assert;
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -147,7 +148,7 @@ public class SepaIntegrationMapper {
             directDebitTransactionInformation.setPaymentIdentification(paymentIdentification);
 
             InstructedAmount instructedAmount = new InstructedAmount();
-            instructedAmount.setAmount(installment.getInterest().add(installment.getPrincipal()).setScale(2, BigDecimal.ROUND_HALF_UP));
+            instructedAmount.setAmount(installment.getInterest().add(installment.getPrincipal()).setScale(2, RoundingMode.HALF_UP));
             Optional<Currency> currencyOpt = currencyService.findOne(item.getCurrencyId());
             //get from global settings
             instructedAmount.setCurrency(currencyOpt.isPresent() ? currencyOpt.get().getName() : "EUR");
@@ -294,6 +295,6 @@ public class SepaIntegrationMapper {
             result = result.add(installment.getPrincipal());
         }
 
-        return result.setScale(2, BigDecimal.ROUND_HALF_UP);
+        return result.setScale(2, RoundingMode.HALF_UP);
     }
 }

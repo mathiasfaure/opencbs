@@ -68,7 +68,7 @@ public class BranchCustomFieldController extends BaseController {
     @DeleteMapping(value = "/{fieldId}")
     public void deleteCustomField(@PathVariable @NonNull Long fieldId) {
         CustomField customField = this.branchCustomFieldService.findOne(fieldId)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format("Field not found (ID=%d).")));
+                .orElseThrow(() -> new ResourceNotFoundException("Field not found (ID=%d)."));
 
         this.branchCustomFieldService.delete(customField);
     }
